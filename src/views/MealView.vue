@@ -1,38 +1,79 @@
 <template>
-  <div>
-    <h1>{{ meal.title }}</h1>
-    <p>{{ meal.instructions }}</p>
-    <p>{{ mealId }}</p>
+  <div class="meal-card" v-if="meal">
+    <div>
+      <h1>{{ meal.strMeal }}</h1>
+      <img :src="meal.strMealThumb" :alt="meal.strMeal" />
+    </div>
+    <div v-if="meal.strTags.length > 2">
+      <span
+        class="tag-item"
+        v-for="tag in meal.strTags.split(',')"
+        :key="tag"
+        >{{ tag }}</span
+      >
+    </div>
+    <div class="meal-tags">
+      <p><strong>Catégorie:</strong> {{ meal.strCategory }}</p>
+      <p><strong>Origine:</strong> {{ meal.strArea }}</p>
+    </div>
+    <div>
+      <h4>Details:</h4>
+      <p>{{ meal.strInstructions }}</p>
+    </div>
+    <div>
+      <h4>Ingrédients:</h4>
+      <ul>
+        <li v-for="ingredient in ingredients" :key="ingredient">
+          {{ ingredient }}
+        </li>
+      </ul>
+    </div>
+    <div v-if="meal.strYoutube.length > 5">
+      <a target="_blank" :href="meal.strYoutube">See how to on Youtube</a>
+    </div>
+    <div v-if="meal.strSource.length > 5">
+      <a target="_blank" :href="meal.strSource">->recipe credit</a>
+    </div>
+  </div>
+  <div v-else>
+    <p>Loading meal details...</p>
   </div>
 </template>
-
-<script setup>
-import { computed } from "vue";
-import { useRoute } from "vue-router";
-
-const route = useRoute();
-
-// Use a computed property to extract the meal ID from the route params
-const mealId = computed(() => route.params.id);
-
-// Use a computed property to fetch the meal data based on the ID
-const meal = computed(() => {
-  // Replace this with your actual code to fetch the meal data based on the ID
-  const data = {
-    title: "Spaghetti Bolognese",
-    instructions: "Cook the spaghetti and the sauce separately...",
-  };
-  return data;
-});
-</script>
-
 <script>
 export default {
-  props: {
-    // Pass the meal computed property as a prop to the component
-    meal: {
-      type: Object,
-      required: true,
+  name: "MealDetails",
+  data() {
+    return {
+      meal: null,
+      ingredients: [],
+    };
+  },
+  mounted() {
+    this.loadMeal();
+  },
+  methods: {
+    async loadMeal() {
+      try {
+        const response = await fetch(
+          `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${this.$route.params.id}`
+        );
+        const data = await response.json();
+        this.meal = data.meals[0];
+        this.ingredients = this.getIngredients(this.meal);
+      } catch (error) {
+        console.error(error);
+      }
+    },
+    getIngredients(meal) {
+      const ingredients = [];
+      for (let i = 1; i <= 15; i++) {
+        const ingredient = meal[`strIngredient${i}`];
+        const measure = meal[`strMeasure${i}`];
+        if (ingredient && measure) {
+          ingredients.push(`${ingredient} - ${measure}`);
+        }
+      }
+      return ingredients;
     },
   },
 };

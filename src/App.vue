@@ -28,10 +28,6 @@ watch(route, () => {
       <HelloWorld msg="You did it!" />
 
       <NavComponent :page="routePath" />
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
     </div>
   </header>
 

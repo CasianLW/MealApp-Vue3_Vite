@@ -29,16 +29,14 @@ const router = createRouter({
       component: NameView,
     },
     {
-      path: "/meal/:id",
+      path: "/meals/:id",
       name: "meal",
       component: MealView,
+      props: true,
     },
     {
       path: "/random",
       name: "random",
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
       component: () => import("../views/RandomView.vue"),
     },
   ],

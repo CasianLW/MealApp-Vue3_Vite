@@ -28,6 +28,21 @@ nav .router-link-active {
   color: #fd841b;
 }
 
+.meal-card {
+  display: flex;
+  flex: 2 1 auto;
+  img {
+    width: 100% !important;
+  }
+}
+.meal-left-side {
+  width: 40%;
+  margin-right: 4%;
+}
+.meal-right-side {
+  margin-top: 5%;
+  width: 55%;
+}
 .meal-tags {
   display: flex;
   gap: 24px;
@@ -47,7 +62,9 @@ ul {
 
 .tag-item {
   padding: 4px 20px;
-  background-color: rgb(176, 176, 176);
+  background-color: #fd841b;
+  color: white;
+  font-weight: 600;
   border-radius: 25px;
   margin-right: 20px;
 }
@@ -130,11 +147,60 @@ select:focus {
   outline: none;
   box-shadow: 0 0 4px 1px #fd841b1b;
 }
+
+.spans-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.btns-meal {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.btn-youtube {
+  text-decoration: none;
+  margin-top: 20px;
+  background-color: #ff0000;
+  color: white;
+  font-weight: 600;
+  border-radius: 25px;
+  border: 2px solid #ff0000;
+  padding: 12px 20px;
+}
+.btn-youtube:hover {
+  cursor: pointer;
+  background-color: white;
+  color: #ff0000;
+}
+
+.btn-credit {
+  cursor: pointer;
+  color: #fd841b;
+}
 @media (max-width: 600px) {
   h1 {
     font-size: 1.3rem;
   }
   .category-meal-list {
+    li {
+      width: 100%;
+    }
+  }
+
+  .meal-card {
+    display: block;
+  }
+  .meal-left-side {
+    width: 100%;
+    margin-right: 0%;
+  }
+  .meal-right-side {
+    margin-top: 5%;
+    width: 100%;
+  }
+  ul {
     li {
       width: 100%;
     }

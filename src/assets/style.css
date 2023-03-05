@@ -119,6 +119,20 @@ ul li {
   color: #fd841b;
 }
 
+.zone-select {
+  padding: 8px 20px;
+  background-color: white;
+  border: #fd841b solid 1px;
+  border-radius: 25px;
+  margin-left: 8px;
+  margin-bottom: 20px;
+}
+
+select:focus {
+  outline: none;
+  box-shadow: 0 0 4px 1px rgba(253, 132, 27, 0.1058823529);
+}
+
 @media (max-width: 600px) {
   h1 {
     font-size: 1.3rem;

@@ -33,41 +33,22 @@
 </template>
 
 <script>
-// import axios from "axios";
-
 export default {
   name: "SearchMealByZone",
   data() {
     return {
       selectedZone: "",
-      zones: [
-        "American",
-        "British",
-        "Canadian",
-        "Chinese",
-        "Dutch",
-        "Egyptian",
-        "French",
-        "Greek",
-        "Indian",
-        "Irish",
-        "Italian",
-        "Jamaican",
-        "Japanese",
-        "Kenyan",
-        "Malaysian",
-        "Mexican",
-        "Moroccan",
-        "Russian",
-        "Spanish",
-        "Thai",
-        "Tunisian",
-        "Turkish",
-        "Unknown",
-        "Vietnamese",
-      ],
+      zones: [],
       meals: [],
     };
+  },
+  mounted() {
+    fetch("https://www.themealdb.com/api/json/v1/1/list.php?a=list")
+      .then((response) => response.json())
+      .then((data) => {
+        this.zones = data.meals.map(({ strArea }) => strArea);
+      })
+      .catch((error) => console.log(error));
   },
   methods: {
     searchMeal() {
@@ -76,16 +57,6 @@ export default {
         return;
       }
 
-      // axios
-      //   .get(
-      //     `https://www.themealdb.com/api/json/v1/1/filter.php?a=${this.selectedZone}`
-      //   )
-      //   .then((response) => {
-      //     this.meals = response.data.meals;
-      //   })
-      //   .catch((error) => {
-      //     console.log(error);
-      //   });
       fetch(
         `https://www.themealdb.com/api/json/v1/1/search.php?s=${this.selectedZone}`
       )

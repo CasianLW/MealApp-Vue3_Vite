@@ -1,8 +1,10 @@
 <template>
   <div>
     <h1>Plat Aléatoire</h1>
-    <button @click="getRandomMeal">Afficher un plat aléatoire</button>
-    <div v-if="meal">{{ meal.idMeal }}</div>
+    <button class="random-btn" @click="getRandomMeal">
+      Afficher un plat aléatoire
+    </button>
+    <!-- <div v-if="meal">{{ meal.idMeal }}</div> -->
     <meal-card :mealId="meal.idMeal" v-if="meal" />
   </div>
 </template>

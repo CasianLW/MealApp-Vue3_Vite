@@ -8,8 +8,19 @@ h1 {
 }
 
 nav a {
-  padding: 16px 4px;
+  margin-right: 12px;
+  font-weight: 600;
+  color: black;
+  padding: 4px 8px;
+  border-bottom: transparent 1px solid;
   text-decoration: none;
+}
+nav a :hover {
+  border-bottom: #fd841b 1px solid;
+}
+
+nav a:hover {
+  border-bottom: #fd841b 1px solid;
 }
 
 nav .router-link-active {

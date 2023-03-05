@@ -9,7 +9,7 @@ nav a {
 }
 
 nav .router-link-active {
-  color: white;
+  color: #fd841b;
 }
 
 .meal-tags {
@@ -32,7 +32,7 @@ ul li {
 
 .tag-item {
   padding: 4px 20px;
-  background-color: rgb(61, 61, 61);
+  background-color: rgb(176, 176, 176);
   border-radius: 25px;
   margin-right: 20px;
 }/*# sourceMappingURL=style.css.map */

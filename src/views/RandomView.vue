@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import MealCard from "../components/MealComponent.vue";
+import MealCard from "../components/shared/MealComponent.vue";
 
 export default {
   data() {

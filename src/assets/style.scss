@@ -89,6 +89,20 @@ ul {
     max-width: 60px;
   }
 }
+.random-btn {
+  margin-top: 20px;
+  background-color: #fd841b;
+  color: white;
+  font-weight: 600;
+  border-radius: 25px;
+  border: 2px solid #fd841b;
+  padding: 12px 20px;
+}
+.random-btn:hover {
+  cursor: pointer;
+  background-color: white;
+  color: #fd841b;
+}
 @media (max-width: 600px) {
   h1 {
     font-size: 1.3rem;

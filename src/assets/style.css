@@ -1,5 +1,10 @@
+@charset "UTF-8";
 .container {
   margin: auto;
+}
+
+h1 {
+  margin-top: 20px;
 }
 
 nav a {
@@ -60,4 +65,38 @@ ul li {
 .category-btns input[type=radio]:checked + label {
   background-color: #fd841b !important;
   color: white !important;
+}
+
+.category-meal-list ul {
+  list-style: none;
+}
+.category-meal-list h3::after {
+  content: "📙";
+  display: inline-block;
+  margin-left: 5px;
+}
+.category-meal-list a {
+  font-weight: 600;
+  color: black;
+  text-decoration: none;
+  display: flex;
+  margin: auto;
+  align-items: center;
+  margin: 8px 0;
+}
+.category-meal-list a:hover {
+  color: #fd841b;
+}
+.category-meal-list img {
+  margin-right: 8px;
+  max-width: 60px;
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.3rem;
+  }
+  .category-meal-list li {
+    width: 100%;
+  }
 }/*# sourceMappingURL=style.css.map */

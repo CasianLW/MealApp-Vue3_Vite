@@ -19,7 +19,7 @@ watch(route, () => {
     <img
       alt="Vue logo"
       class="logo"
-      src="@/assets/logo.svg"
+      src="https://static.vecteezy.com/system/resources/previews/007/742/645/original/cooking-book-cartoon-book-icon-with-orange-color-free-vector.jpg"
       width="125"
       height="125"
     />

@@ -1,5 +1,4 @@
 .container {
-  max-width: 960px;
   margin: auto;
 }
 
@@ -35,4 +34,30 @@ ul li {
   background-color: rgb(176, 176, 176);
   border-radius: 25px;
   margin-right: 20px;
+}
+
+.category-list {
+  margin-bottom: 40px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.category-btns {
+  margin-top: 20px;
+  margin-right: 20px;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.category-btns input {
+  display: none;
+}
+.category-btns label {
+  padding: 8px 20px;
+  background-color: white;
+  border: #fd841b solid 1px;
+  border-radius: 25px;
+}
+.category-btns input[type=radio]:checked + label {
+  background-color: #fd841b !important;
+  color: white !important;
 }/*# sourceMappingURL=style.css.map */

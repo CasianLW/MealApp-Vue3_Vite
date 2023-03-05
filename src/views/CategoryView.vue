@@ -40,8 +40,6 @@
 </template>
 
 <script>
-// import axios from "axios";
-
 export default {
   name: "SearchMealByCategory",
   data() {
@@ -53,14 +51,6 @@ export default {
   },
   methods: {
     searchCategories() {
-      // axios
-      //   .get("https://www.themealdb.com/api/json/v1/1/categories.php")
-      //   .then((response) => {
-      //     this.categories = response.data.categories;
-      //   })
-      //   .catch((error) => {
-      //     console.log(error);
-      //   });
       fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
         .then((response) => response.json())
         .then((data) => {
@@ -70,16 +60,6 @@ export default {
     },
     searchMealByCategory() {
       if (this.selectedCategory) {
-        // axios
-        //   .get(
-        //     `https://www.themealdb.com/api/json/v1/1/filter.php?c=${this.selectedCategory}`
-        //   )
-        //   .then((response) => {
-        //     this.meals = response.data.meals;
-        //   })
-        //   .catch((error) => {
-        //     console.log(error);
-        //   });
         fetch(
           `https://www.themealdb.com/api/json/v1/1/search.php?s=${this.selectedCategory}`
         )

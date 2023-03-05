@@ -15,5 +15,6 @@ defineProps({
     <router-link to="/name">Search by Name</router-link>
     <router-link to="/category">Search by Category</router-link>
     <router-link to="/zone">Search by Zone</router-link>
+    <router-link to="/ingredient">Search by Ingredient</router-link>
   </nav>
 </template>

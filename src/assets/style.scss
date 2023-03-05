@@ -2,7 +2,9 @@
   // max-width: 960px;
   margin: auto;
 }
-
+h1 {
+  margin-top: 20px;
+}
 nav a {
   padding: 16px 4px;
   text-decoration: none;
@@ -58,5 +60,42 @@ ul {
   input[type="radio"]:checked + label {
     background-color: #fd841b !important;
     color: white !important;
+  }
+}
+.category-meal-list {
+  ul {
+    list-style: none;
+  }
+
+  h3::after {
+    content: "\1F4D9";
+    display: inline-block;
+    margin-left: 5px;
+  }
+  a {
+    font-weight: 600;
+    color: black;
+    text-decoration: none;
+    display: flex;
+    margin: auto;
+    align-items: center;
+    margin: 8px 0;
+  }
+  a:hover {
+    color: #fd841b;
+  }
+  img {
+    margin-right: 8px;
+    max-width: 60px;
+  }
+}
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.3rem;
+  }
+  .category-meal-list {
+    li {
+      width: 100%;
+    }
   }
 }

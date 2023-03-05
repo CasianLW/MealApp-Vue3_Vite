@@ -1,38 +1,48 @@
 <template>
   <div class="meal-card" v-if="meal">
-    <div>
-      <h1>{{ meal.strMeal }}</h1>
-      <img :src="meal.strMealThumb" :alt="meal.strMeal" />
+    <div class="meal-left-side">
+      <div>
+        <h1>{{ meal.strMeal }}</h1>
+        <img :src="meal.strMealThumb" :alt="meal.strMeal" />
+      </div>
+      <div class="spans-tags" v-if="meal.strTags && meal.strTags.length > 2">
+        <span
+          class="tag-item"
+          v-for="tag in meal.strTags.split(',')"
+          :key="tag"
+          >{{ tag }}</span
+        >
+      </div>
+      <div class="meal-tags">
+        <p><strong>Catégorie :</strong> {{ meal.strCategory }}</p>
+        <p><strong>Origine :</strong> {{ meal.strArea }}</p>
+      </div>
     </div>
-    <div v-if="meal.strTags && meal.strTags.length > 2">
-      <span
-        class="tag-item"
-        v-for="tag in meal.strTags.split(',')"
-        :key="tag"
-        >{{ tag }}</span
-      >
-    </div>
-    <div class="meal-tags">
-      <p><strong>Catégorie :</strong> {{ meal.strCategory }}</p>
-      <p><strong>Origine :</strong> {{ meal.strArea }}</p>
-    </div>
-    <div>
-      <h4>Details :</h4>
-      <p>{{ meal.strInstructions }}</p>
-    </div>
-    <div>
-      <h4>Ingrédients :</h4>
-      <ul>
-        <li v-for="(ingredient, index) in ingredients" :key="index">
-          {{ ingredient }}
-        </li>
-      </ul>
-    </div>
-    <div v-if="meal.strYoutube && meal.strYoutube.length > 5">
-      <a target="_blank" :href="meal.strYoutube">Regarder sur Youtube</a>
-    </div>
-    <div v-if="meal.strSource && meal.strSource.length > 5">
-      <a target="_blank" :href="meal.strSource">Crédit de la recette</a>
+    <div class="meal-right-side">
+      <div>
+        <h4>Details :</h4>
+        <p>{{ meal.strInstructions }}</p>
+      </div>
+      <div>
+        <h4>Ingrédients :</h4>
+        <ul>
+          <li v-for="(ingredient, index) in ingredients" :key="index">
+            {{ ingredient }}
+          </li>
+        </ul>
+      </div>
+      <div class="btns-meal">
+        <div v-if="meal.strYoutube && meal.strYoutube.length > 5">
+          <a class="btn-youtube" target="_blank" :href="meal.strYoutube"
+            >Regarder sur Youtube</a
+          >
+        </div>
+        <div v-if="meal.strSource && meal.strSource.length > 5">
+          <a class="btn-credit" target="_blank" :href="meal.strSource"
+            >Crédit de la recette</a
+          >
+        </div>
+      </div>
     </div>
   </div>
 </template>

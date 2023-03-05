@@ -23,10 +23,8 @@ watch(route, () => {
       width="125"
       height="125"
     />
-
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
+      <HelloWorld msg="MealApp" />
       <NavComponent :page="routePath" />
     </div>
   </header>
